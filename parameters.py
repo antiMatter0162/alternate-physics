@@ -4,7 +4,7 @@ def set_initial_parameters():
     Set initial parameters for the simulation.
     """
     initial_parameters = {
-        "number_of_steps": 10000,
+        "number_of_steps": 100,
         "time_step": 0.01,
         "initial_conditions": {
             "position": 0.0,
