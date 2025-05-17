@@ -6,8 +6,12 @@ def get_momentum(mass, velocity):
     return mass * velocity
 
 def acceleration_dependent_velocity(acceleration, dt, initial_velocity, v_threshold):
-    velocity = initial_velocity + acceleration * dt * (1-initial_velocity/v_threshold)
-    acceleration = acceleration * (1-initial_velocity/v_threshold)
+    if initial_velocity < v_threshold:
+        velocity = initial_velocity + acceleration * dt * (initial_velocity/v_threshold)
+        acceleration = acceleration * (initial_velocity/v_threshold)
+    else:
+        velocity = initial_velocity - acceleration * dt * (initial_velocity/v_threshold)
+        acceleration = - acceleration * (initial_velocity/v_threshold)
     return velocity
 
 def get_velocity(acceleration, dt, initial_velocity, v_threshold, n):

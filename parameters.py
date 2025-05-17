@@ -8,7 +8,7 @@ def set_initial_parameters():
         "time_step": 0.01,
         "initial_conditions": {
             "position": 0.0,
-            "velocity": 1.0,
+            "velocity": 2.4,
             "velocity_threshold": 2.5,
             "acceleration": 1.5
 
