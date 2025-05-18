@@ -29,3 +29,13 @@ def graph_xv(position, velocity):
     plt.ylabel('Position')
     plt.grid()
     plt.show()
+
+def graph_at(acceleration, time):
+    # Function to plot acceleration vs time
+    plt.plot(time, acceleration, label='Acceleration', color='red')
+    plt.legend()
+    plt.title('Acceleration vs Time')
+    plt.xlabel('Time')
+    plt.ylabel('Acceleration')
+    plt.grid()
+    plt.show()

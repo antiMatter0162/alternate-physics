@@ -15,7 +15,7 @@ def set_initial_parameters():
         "initial_conditions": {
             "position": 0.0,
             "velocity": 2.5,
-            "velocity_threshold": 8.0,
+            "velocity_threshold": 2.6,
             "acceleration": 1.5
 
         },

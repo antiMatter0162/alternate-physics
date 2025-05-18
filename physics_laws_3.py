@@ -1,33 +1,28 @@
-#simulates quasi - relativistic effects at much lower speeds
-def velocity_dependent_mass(mass, velocity):
-    alpha = 0.5
-    m_0 = 1.0
-    mass = m_0 * (1 + velocity**2 * alpha)
-    return mass
-
-def force_law(mass, force):     
-    acceleration = force / mass
-    return acceleration
+#no idea what this is 
+import math
+def sinuosoidal_law(force, mass, time):
+    factor = math.sin(force / mass * time)
+    return factor
 
 def get_velocity(acceleration, dt, initial_velocity, n, force, mass):
     velocity_by_step = []
     time = []
-    acceleration_by_step = []
     gamma = 1.0
+    acceleration_by_step = []
+    a_0 = acceleration
     for i in range(n):
+        acceleration = a_0 * sinuosoidal_law(force, mass, dt * i)
+        acceleration_by_step.append(acceleration)
         velocity = initial_velocity + acceleration * dt * gamma
-        mass = velocity_dependent_mass(mass, velocity)
         if mass == 0:
             print("Mass is zero, stopping simulation.")
             break
-        acceleration = force_law(mass, force)
-        acceleration_by_step.append(acceleration)
         velocity_by_step.append(velocity)
         initial_velocity = velocity
         time.append(i * dt)
     return velocity_by_step, time, acceleration_by_step
 
-def get_position(velocity, dt, initial_position, n_steps):
+def get_position(velocity, dt, initial_position, n_steps): 
     position_by_step = []
     n_steps = len(velocity)
     for i in range(n_steps):
