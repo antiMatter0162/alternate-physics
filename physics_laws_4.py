@@ -1,4 +1,7 @@
 #simulates exponentially increasing acceleration as velocty increases
+from math import nan
+
+
 def velocity_dependent_acceleration(acceleration, velocity):
     acceleration = acceleration + acceleration * ((velocity)/(velocity + 1)) / 100
     return acceleration 
@@ -9,7 +12,9 @@ def get_velocity(acceleration, dt, initial_velocity, n):
     acceleration_by_step = []
     for i in range(n):
         acceleration = velocity_dependent_acceleration(acceleration, initial_velocity)
-        print("Acceleration:", acceleration)
+        if acceleration == nan:
+            print("Acceleration is NaN, stopping simulation.")
+            break
         velocity = initial_velocity + acceleration * dt
         velocity_by_step.append(velocity)
         time.append(i * dt)
@@ -17,7 +22,8 @@ def get_velocity(acceleration, dt, initial_velocity, n):
         initial_velocity = velocity
     return velocity_by_step, time, acceleration_by_step
 
-def get_position(velocity, dt, initial_position, n):
+def get_position(velocity, dt, initial_position):
+    n = len(velocity)
     position_by_step = []
     for i in range(n):
         position = initial_position + velocity[i] * dt
