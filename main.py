@@ -11,8 +11,8 @@ parameters= parameters.set_initial_parameters()
 
 if model_to_use == "1":
     print("Using model 1")
-    velocity, time, acceleration = physics_laws_1.get_velocity(parameters["initial_conditions"]["acceleration"], 0.5, parameters["initial_conditions"]["velocity"], parameters["initial_conditions"]["velocity_threshold"], parameters["number_of_steps"])
-    position = physics_laws_1.get_position(velocity, 0.5, parameters["initial_conditions"]["position"], parameters["number_of_steps"])
+    velocity, time, acceleration = physics_laws_1.get_velocity(parameters["initial_conditions"]["acceleration"], 0.1, parameters["initial_conditions"]["velocity"], parameters["initial_conditions"]["velocity_threshold"], parameters["number_of_steps"])
+    position = physics_laws_1.get_position(velocity, 0.1, parameters["initial_conditions"]["position"], parameters["number_of_steps"])
 elif model_to_use == "2":
     print("Using model 2")
     velocity, time, acceleration = physics_laws_2.get_velocity(parameters["initial_conditions"]["acceleration"], 0.1, parameters['initial_conditions']['velocity'], parameters["number_of_steps"], parameters["simulation_parameters"]["mass"] * parameters['initial_conditions']['acceleration'], parameters["simulation_parameters"]["mass"])
