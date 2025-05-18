@@ -1,12 +1,7 @@
-def get_energy(mass, velocity):
-    # Calculates kinetic energy based on mass and velocity
-    return 0.5 * mass * velocity ** 2
-def get_momentum(mass, velocity):
-    # Calculates momentum based on mass and velocity
-    return mass * velocity
 
+# simulates a "lagging" effect in velocity
 def acceleration_dependent_velocity(acceleration, dt, initial_velocity, v_threshold):
-    gamma = 10.0
+    gamma = 30.0
     # Gamma is a constant that determines the effect of acceleration on velocity
     if initial_velocity < v_threshold:
         velocity = initial_velocity + acceleration * dt * (initial_velocity/v_threshold) * gamma
@@ -33,7 +28,7 @@ def get_velocity(acceleration, dt, initial_velocity, v_threshold, n):
 
 def get_position(velocity, dt, initial_position, n):
     # Calculates position based on velocity and time step
-    gamma = 10.0
+    gamma = 30.0
     position_by_step = []
     for i in range(n):
         position = initial_position + velocity[i] * dt * gamma

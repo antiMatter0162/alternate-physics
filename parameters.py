@@ -12,11 +12,10 @@ def set_initial_parameters():
     # Ensure n is an integer
     initial_parameters = {
         "number_of_steps": int(n),
-        "time_step": 0.01,
         "initial_conditions": {
             "position": 0.0,
-            "velocity": 2.4,
-            "velocity_threshold": 2.5,
+            "velocity": 2.5,
+            "velocity_threshold": 8.0,
             "acceleration": 1.5
 
         },
