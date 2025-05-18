@@ -6,7 +6,7 @@ def get_momentum(mass, velocity):
     return mass * velocity
 
 def acceleration_dependent_velocity(acceleration, dt, initial_velocity, v_threshold):
-    gamma = 3.7
+    gamma = 10.0
     # Gamma is a constant that determines the effect of acceleration on velocity
     if initial_velocity < v_threshold:
         velocity = initial_velocity + acceleration * dt * (initial_velocity/v_threshold) * gamma
@@ -33,12 +33,10 @@ def get_velocity(acceleration, dt, initial_velocity, v_threshold, n):
 
 def get_position(velocity, dt, initial_position, n):
     # Calculates position based on velocity and time step
-    gamma = 7.0
+    gamma = 10.0
     position_by_step = []
     for i in range(n):
         position = initial_position + velocity[i] * dt * gamma
-        print(f"Step {i}: Position = {position}")
-        print(f"Step {i}: Velocity = {velocity[i]}")
         position_by_step.append(position)
         # Store the position for each step
         initial_position = position

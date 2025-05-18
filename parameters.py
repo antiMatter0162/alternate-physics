@@ -3,8 +3,15 @@ def set_initial_parameters():
     """
     Set initial parameters for the simulation.
     """
+    n = input("Enter the number of steps: ")
+    try:
+        n == int(n)
+    except ValueError:
+        print("Invalid input. Please enter a valid number.")
+        n = int(input("Enter the number of steps: "))
+    # Ensure n is an integer
     initial_parameters = {
-        "number_of_steps": 100,
+        "number_of_steps": int(n),
         "time_step": 0.01,
         "initial_conditions": {
             "position": 0.0,
