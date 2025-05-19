@@ -1,13 +1,12 @@
 
 # simulates a "lagging" effect in velocity with discretized time steps
-def acceleration_dependent_velocity(acceleration, dt, initial_velocity, v_threshold):
-    a_0 = 1.5
+def acceleration_dependent_velocity(acceleration, dt, initial_velocity, v_threshold, a_0):
     # Gamma is a constant that determines the effect of acceleration on velocity
     if initial_velocity < v_threshold:
         velocity = initial_velocity + acceleration * dt 
         acceleration = a_0
     else:
-        velocity = initial_velocity - acceleration * dt 
+        velocity = initial_velocity - abs(acceleration) * dt 
         acceleration = - a_0
         v_threshold = v_threshold * 1.01
     return velocity, v_threshold, acceleration
@@ -17,8 +16,9 @@ def get_velocity(acceleration, dt, initial_velocity, v_threshold, n):
     velocity_by_step = []
     time = []
     acceleration_by_step = []
+    a_0 = acceleration
     for i in range(n):
-        velocity, v_threshold, acceleration = acceleration_dependent_velocity(acceleration, dt, initial_velocity, v_threshold)
+        velocity, v_threshold, acceleration = acceleration_dependent_velocity(acceleration, dt, initial_velocity, v_threshold, a_0)
         velocity_by_step.append(velocity)
         acceleration_by_step.append(acceleration)
         # Store the velocity for each step

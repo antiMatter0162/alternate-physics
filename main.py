@@ -8,7 +8,7 @@ import physics_laws_4
 import parameters
 import graph_results
 model_to_use = input("Select alternate model number: ")
-parameters= parameters.set_initial_parameters()
+parameters= parameters.set_initial_parameters(model_to_use)
 
 if model_to_use == "1":
     print("Using model 1")
@@ -16,8 +16,8 @@ if model_to_use == "1":
     position = physics_laws_1.get_position(velocity, 0.1, parameters["initial_conditions"]["position"], parameters["number_of_steps"])
 elif model_to_use == "2":
     print("Using model 2")
-    velocity, time, acceleration = physics_laws_2.get_velocity(parameters["initial_conditions"]["acceleration"], 0.001, parameters['initial_conditions']['velocity'], parameters["number_of_steps"]*10, parameters["simulation_parameters"]["mass"] * parameters['initial_conditions']['acceleration'], parameters["simulation_parameters"]["mass"])
-    position = physics_laws_2.get_position(velocity, 0.001, parameters["initial_conditions"]["position"], parameters["number_of_steps"]*10)
+    velocity, time, acceleration = physics_laws_2.get_velocity(parameters["initial_conditions"]["acceleration"], 0.001, parameters['initial_conditions']['velocity'], parameters["number_of_steps"], parameters["simulation_parameters"]["mass"] * parameters['initial_conditions']['acceleration'], parameters["simulation_parameters"]["mass"])
+    position = physics_laws_2.get_position(velocity, 0.001, parameters["initial_conditions"]["position"], parameters["number_of_steps"])
 elif model_to_use == "3":
     print("Using model 3")
     velocity, time, acceleration = physics_laws_3.get_velocity(parameters["initial_conditions"]["acceleration"], 0.001, parameters["initial_conditions"]["velocity"], parameters["number_of_steps"], parameters["simulation_parameters"]["mass"] * parameters['initial_conditions']['acceleration'], parameters["simulation_parameters"]["mass"])
