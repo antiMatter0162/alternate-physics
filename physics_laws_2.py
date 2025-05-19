@@ -1,9 +1,12 @@
 #simulates quasi - relativistic effects at much lower speeds
-def velocity_dependent_mass(mass, velocity):
-    alpha = 0.5
-    m_0 = 1.0
-    mass = m_0 * (1 + velocity**2 * alpha)
-    return mass
+def velocity_dependent_force(force, velocity):
+    c = 50.0
+    #c is the hypothetical maximum speed limit
+    f_0 = 1.5
+    if velocity > c:
+        velocity = c
+    force = f_0 * abs(1 - velocity**2 / c**2)**0.5
+    return force
 
 def force_law(mass, force):     
     acceleration = force / mass
@@ -16,7 +19,9 @@ def get_velocity(acceleration, dt, initial_velocity, n, force, mass):
     gamma = 1.0
     for i in range(n):
         velocity = initial_velocity + acceleration * dt * gamma
-        mass = velocity_dependent_mass(mass, velocity)
+        if velocity > 50.0:
+            velocity = 50.0
+        force = velocity_dependent_force(force, velocity)
         if mass == 0:
             print("Mass is zero, stopping simulation.")
             break
