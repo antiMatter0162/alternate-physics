@@ -38,6 +38,20 @@ def set_initial_parameters(model_to_use):
         except ValueError:
             print("Invalid input. Please enter a valid number.")
             v_t = float(input("Enter the velocity threshold: "))
+        mass = input("Enter the mass: ")
+        try:
+            mass == float(mass)
+        except ValueError:
+            print("Invalid input. Please enter a valid number.")
+            mass = float(input("Enter the mass: "))
+        while float(mass) <= 0.0:
+            print("Mass must be greater than 0.0.")
+            mass = input("Enter the mass: ")
+            try:
+                mass == float(mass)
+            except ValueError:
+                print("Invalid input. Please enter a valid number.")
+                mass = float(input("Enter the mass: "))
     elif set_params.lower() == 'y' and model_to_use == "2":
         v_0 = input("Enter the initial velocity: ")
         try:
@@ -54,7 +68,21 @@ def set_initial_parameters(model_to_use):
         except ValueError:
             print("Invalid input. Please enter a valid number.")
             a = float(input("Enter the acceleration: "))
-        v_t = 2.6
+        mass = input("Enter the mass: ")
+        try:
+            mass == float(mass)
+        except ValueError:
+            print("Invalid input. Please enter a valid number.")
+            mass = float(input("Enter the mass: "))
+        while float(mass) <= 0.0:
+            print("Mass must be greater than 0.0.")
+            mass = input("Enter the mass: ")
+            try:
+                mass == float(mass)
+            except ValueError:
+                print("Invalid input. Please enter a valid number.")
+                mass = float(input("Enter the mass: "))
+        v_t = 0.0
     elif set_params.lower() == 'y':  
         # Get user input for parameters
         v_0 = input("Enter the initial velocity: ")
@@ -69,8 +97,22 @@ def set_initial_parameters(model_to_use):
         except ValueError:
             print("Invalid input. Please enter a valid number.")
             a = float(input("Enter the acceleration: "))
-        v_t = 2.6
-        # Not used in these models, but included so code is consistent
+        mass = input("Enter the mass: ")
+        try:
+            mass == float(mass)
+        except ValueError:
+            print("Invalid input. Please enter a valid number.")
+            mass = float(input("Enter the mass: "))
+        while float(mass) <= 0.0:
+            print("Mass must be greater than 0.0.")
+            mass = input("Enter the mass: ")
+            try:
+                mass == float(mass)
+            except ValueError:
+                print("Invalid input. Please enter a valid number.")
+                mass = float(input("Enter the mass: "))
+        v_t = 0.0
+        # Not used in these models, but included so code works
     else:
         # Default parameters
         v_0 = 2.5
@@ -87,7 +129,7 @@ def set_initial_parameters(model_to_use):
 
         },
         "simulation_parameters": {
-            "mass": 1.0
+            "mass": float(mass)
         }
     }
     return initial_parameters
