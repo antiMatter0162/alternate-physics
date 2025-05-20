@@ -30,10 +30,9 @@ def get_velocity(acceleration, dt, initial_velocity, v_threshold, n):
 
 def get_position(velocity, dt, initial_position, n):
     # Calculates position based on velocity and time step
-    gamma = 15.0
     position_by_step = []
     for i in range(n):
-        position = initial_position + velocity[i] * dt * gamma
+        position = initial_position + velocity[i] * dt
         position_by_step.append(position)
         # Store the position for each step
         initial_position = position

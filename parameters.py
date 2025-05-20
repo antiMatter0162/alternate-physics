@@ -11,7 +11,9 @@ def set_initial_parameters(model_to_use):
         n = int(input("Enter the number of iterations: "))
     # Ensure n is an integer
 
-    if model_to_use != "1":
+    if model_to_use == "2":
+        n = int(n) * 100
+    elif model_to_use != "1":
         n = int(n) * 10
     # Standardizes time interval
 

@@ -1,6 +1,6 @@
 #simulates exponentially increasing acceleration as velocty increases
 def velocity_dependent_acceleration(acceleration, velocity):
-    acceleration = acceleration + acceleration * ((velocity)/(velocity + 1)) / 100
+    acceleration = acceleration + acceleration * abs(((velocity)/(velocity + 1))) / 100
     return acceleration 
 
 def get_velocity(acceleration, dt, initial_velocity, n):

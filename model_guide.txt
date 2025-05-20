@@ -1,0 +1,41 @@
+The various different models behave in different ways, but all
+are somewhat analogous to established physical laws.
+
+Model 1: "High Ping" Acceleration
+
+This model sets a velocity threshold above which acceleration is
+flipped to be the negative of what it was initially. The threshold
+velocity is also increased very slightly each time it is exceeded
+such that acceleration still occurs, but oscillations in velocity
+will occur frequently. The dependence of position and velocity 
+on acceleration are kept the same as in classical mechanics.
+
+Model 2: Low-Speed Relativistic Effects
+
+This model essentially models relativistic effects but sets the
+speed of light c = 50 m/s, a value that is many orders of magnitude
+less than the actual value of c. Note that due to computational
+limitations in the number of iterations, there is code in place 
+to set boundary conditions such that the behavior conforms to 
+expectations.
+
+Model 3: Sinusoidal Second Law
+
+This model takes Newton's second law and changes the relation
+to a time-dependent sinusoidal one. This brings up a lot of
+questions about the physicality of this scenario, but it can
+slightly mirror simple harmonic oscillatory motion. There is
+nothing special about relations between the three fundamental
+position-related quantities in this model.
+
+Model 4: Exponential Acceleration
+
+In this model, acceleration is dependent on the velocity of the
+object, causing it to exponentially increase as velocity increases.
+The relation acts upon the speed of the object and not the velocity,
+meaning that the direction of acceleration is preserved regardless
+of the direction of the initial velocity.
+
+The model uses computational methods to evaluate integral expressions,
+so it can have some limitations due to computational limitations of the
+creator's device.
