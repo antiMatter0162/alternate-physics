@@ -22,6 +22,7 @@ def graph_xt(position, time):
 
 def graph_xv(position, velocity):
     # Function to plot position vs velocity
+    # Not particularly useful in practice
     plt.plot(velocity, position, label='Position vs Velocity', color='green')
     plt.legend()
     plt.title('Position vs Velocity')
