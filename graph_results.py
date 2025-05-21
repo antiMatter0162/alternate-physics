@@ -40,3 +40,18 @@ def graph_at(acceleration, time):
     plt.ylabel('Acceleration')
     plt.grid()
     plt.show()
+
+def give_max_values(velocity, acceleration):
+    # Function to give max values of velocity and acceleration
+    max_velocity = max(velocity)
+    max_acceleration = max(acceleration)
+    print(f"Max Velocity: {max_velocity}")
+    print(f"Max Acceleration: {max_acceleration}")
+
+def save_results(velocity, time, acceleration, position):
+    # Function to save results to a file
+    with open('results.txt', 'w') as f:
+        f.write("Time, Velocity, Acceleration, Position\n")
+        for t, v, a, p in zip(time, velocity, acceleration, position):
+            f.write(f"{t}, {v}, {a}, {p}\n")
+    print("Results saved to results.txt")

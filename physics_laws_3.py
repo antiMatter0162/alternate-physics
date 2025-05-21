@@ -1,4 +1,5 @@
-#no idea what this is 
+#no idea what this is, but it looks funny
+
 import math
 def sinuosoidal_law(force, mass, time):
     factor = math.sin(force / mass * time)

@@ -39,3 +39,13 @@ graph_results.graph_xt(position, time)
 graph_results.graph_xv(position, velocity)
 
 graph_results.graph_at(acceleration, time)
+
+graph_results.give_max_values(velocity, acceleration)
+
+
+save_results = input("Would you like to save the results? (y/n) ")
+if save_results.lower() == 'y':
+    graph_results.save_results(velocity, time, acceleration, position)
+    print("Results saved.")
+else:
+    print("Results not saved.")

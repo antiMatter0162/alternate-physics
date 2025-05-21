@@ -129,6 +129,7 @@ def set_initial_parameters(model_to_use):
         v_t = 2.6
         mass = 1.0
     # Set initial parameters
+    
     initial_parameters = {
         "number_of_steps": int(n),
         "initial_conditions": {
