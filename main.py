@@ -8,8 +8,12 @@ import physics_laws_4
 import parameters
 import graph_results
 model_to_use = input("Select alternate model number: ")
-parameters= parameters.set_initial_parameters(model_to_use)
 
+while model_to_use not in ["1", "2", "3", "4"]:
+    print("Invalid model number. Please select a valid model.")
+    model_to_use = input("Select alternate model number: ")
+
+parameters= parameters.set_initial_parameters(model_to_use)
 if model_to_use == "1":
     print("Using model 1")
     velocity, time, acceleration = physics_laws_1.get_velocity(parameters["initial_conditions"]["acceleration"], 0.1, parameters["initial_conditions"]["velocity"], parameters["initial_conditions"]["velocity_threshold"], parameters["number_of_steps"])
@@ -26,8 +30,8 @@ elif model_to_use == "4":
     print("Using model 4")
     velocity, time, acceleration = physics_laws_4.get_velocity(parameters["initial_conditions"]["acceleration"], 0.001, parameters["initial_conditions"]["velocity"], parameters["number_of_steps"])
     position = physics_laws_4.get_position(velocity, 0.001, parameters["initial_conditions"]["position"])
-else:
-    exit("Invalid model number. Please select a valid model.")
+
+    
 graph_results.graph_vt(velocity, time)
 
 graph_results.graph_xt(position, time)
