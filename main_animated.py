@@ -101,56 +101,49 @@ while animation_choice not in ["1", "2", "3", "4"]:
 save_choice = input("Would you like to save the animations as GIF files? (y/n): ")
 save_animations = save_choice.lower() == 'y'
 
-# Animation speed setting
-speed_choice = input("Choose animation speed (fast/medium/slow) [default: medium]: ").lower()
-if speed_choice == "fast":
-    interval = 25
-elif speed_choice == "slow":
-    interval = 100
-else:
-    interval = 50
+# Show animation speed info
+print(f"\nAnimation speed automatically scaled for {len(time)} data points")
+print("(More data points = faster animation to keep reasonable duration)")
 
 if animation_choice == "1":
     print("Showing individual animated graphs...")
     print("Close each window to proceed to the next animation.")
     
     print("1. Animating Velocity vs Time...")
-    graph_results.animate_vt(velocity, time, interval=interval, save_animation=save_animations)
+    graph_results.animate_vt(velocity, time, save_animation=save_animations)
     
     print("2. Animating Position vs Time...")
-    graph_results.animate_xt(position, time, interval=interval, save_animation=save_animations)
+    graph_results.animate_xt(position, time, save_animation=save_animations)
     
     print("3. Animating Acceleration vs Time...")
-    graph_results.animate_at(acceleration, time, interval=interval, save_animation=save_animations)
+    graph_results.animate_at(acceleration, time, save_animation=save_animations)
     
     print("4. Animating Phase Space (Position vs Velocity)...")
-    graph_results.animate_xv(position, velocity, interval=interval, save_animation=save_animations)
+    graph_results.animate_xv(position, velocity, save_animation=save_animations)
 
 elif animation_choice == "2":
     print("Showing all graphs in one animated view...")
-    graph_results.animate_all_graphs(velocity, time, acceleration, position, 
-                                   interval=interval, save_animation=save_animations)
+    graph_results.animate_all_graphs(velocity, time, acceleration, position, save_animation=save_animations)
 
 elif animation_choice == "3":
     print("Showing particle motion visualization...")
-    graph_results.animate_particle_motion(position, time, interval=interval, save_animation=save_animations)
+    graph_results.animate_particle_motion(position, time, save_animation=save_animations)
 
 elif animation_choice == "4":
     print("Showing all animation types...")
     print("Close each window to proceed to the next animation.")
     
     print("1. All graphs in one view...")
-    graph_results.animate_all_graphs(velocity, time, acceleration, position, 
-                                   interval=interval, save_animation=save_animations)
+    graph_results.animate_all_graphs(velocity, time, acceleration, position, save_animation=save_animations)
     
     print("2. Particle motion visualization...")
-    graph_results.animate_particle_motion(position, time, interval=interval, save_animation=save_animations)
+    graph_results.animate_particle_motion(position, time, save_animation=save_animations)
     
     print("3. Individual graphs...")
-    graph_results.animate_vt(velocity, time, interval=interval, save_animation=save_animations)
-    graph_results.animate_xt(position, time, interval=interval, save_animation=save_animations)
-    graph_results.animate_at(acceleration, time, interval=interval, save_animation=save_animations)
-    graph_results.animate_xv(position, velocity, interval=interval, save_animation=save_animations)
+    graph_results.animate_vt(velocity, time, save_animation=save_animations)
+    graph_results.animate_xt(position, time, save_animation=save_animations)
+    graph_results.animate_at(acceleration, time, save_animation=save_animations)
+    graph_results.animate_xv(position, velocity, save_animation=save_animations)
 
 # Show max values
 print("\n=== Simulation Results ===")

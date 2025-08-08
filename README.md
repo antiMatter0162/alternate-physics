@@ -34,10 +34,15 @@ This version is specifically designed for animations with more options.
 
 ### Animation Features
 
-- **Variable Speed**: Choose between fast, medium, or slow animation speeds
+- **Automatic Speed Scaling**: Animation speed automatically adjusts based on the number of data points to keep reasonable duration
+  - ≤100 points: Normal speed (50ms intervals)
+  - ≤500 points: 2x faster (25ms intervals)  
+  - ≤1000 points: 4x faster (12ms intervals)
+  - >1000 points: 8x faster (6ms intervals)
 - **Save as GIF**: Option to save animations as GIF files for sharing or presentations
 - **Interactive Controls**: All matplotlib animation controls available (pause, step, etc.)
 - **Real-time Data Points**: See the current data point highlighted as the animation progresses
+- **Data Point Counter**: Each animation shows the total number of points being animated
 
 ### Requirements
 
